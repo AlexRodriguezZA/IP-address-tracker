@@ -20,11 +20,10 @@ const MakerMap = ({ dataIP }) => {
     }
   }, [dataIP, map]);
 
-  // Define el ícono personalizado
   const customIcon = L.icon({
     iconUrl: locationIcon,
-    iconSize: [45, 45], // Ajusta el tamaño del ícono según sea necesario
-    iconAnchor: [16, 32], // Ajusta el anclaje del ícono si es necesario
+    iconSize: [45, 45], 
+    iconAnchor: [16, 32],
   });
 
   return dataIP ? (
