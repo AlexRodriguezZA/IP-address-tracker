@@ -23,7 +23,7 @@ const MakerMap = ({ dataIP }) => {
   // Define el ícono personalizado
   const customIcon = L.icon({
     iconUrl: locationIcon,
-    iconSize: [32, 32], // Ajusta el tamaño del ícono según sea necesario
+    iconSize: [45, 45], // Ajusta el tamaño del ícono según sea necesario
     iconAnchor: [16, 32], // Ajusta el anclaje del ícono si es necesario
   });
 
