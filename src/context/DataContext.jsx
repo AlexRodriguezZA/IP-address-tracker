@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from "react";
 import { fetchDataIP } from "../utils/FetchDataIP";
 const DataContext = createContext();
 
-
 //HOOK DEL CONTEXT PERSONALIZADO
 export const useDataContext = () => {
   return useContext(DataContext);
@@ -10,22 +9,31 @@ export const useDataContext = () => {
 
 export const DataProvider = ({ children }) => {
   const [dataIP, setDataIP] = useState(null);
-  const [Error, setError] = useState(false)
+  const [Error, setError] = useState(false);
+
   const handleFetch = async (ip) => {
     if (!ip) {
       return;
     }
     const data = await fetchDataIP(ip);
-    if(data === null){
-      setError(true)
-      return
+    if (data === null) {
+      setError(true);
+      return;
     }
     setDataIP(data);
-    setError(false)
+    setError(false);
   };
-
+  const handleSearchMiIP = async () => {
+    const data = await fetchDataIP();
+    if (data === null) {
+      setError(true);
+      return;
+    }
+    setDataIP(data);
+    setError(false);
+  };
   return (
-    <DataContext.Provider value={{ dataIP, Error, handleFetch }}>
+    <DataContext.Provider value={{ dataIP, Error, handleFetch, handleSearchMiIP }}>
       {children}
     </DataContext.Provider>
   );
