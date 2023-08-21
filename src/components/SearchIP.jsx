@@ -16,7 +16,7 @@ const SearchIP = () => {
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
-            className="h-7 w-full ml-3 text-sm"
+            className="h-7 w-full ml-3 text-sm focus:outline-none active:outline-none"
             placeholder="Ingrese IP..."
           />
         </div>
